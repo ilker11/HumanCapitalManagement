@@ -45,7 +45,7 @@ namespace HumanCapitalManagement.Controllers
                     if (isPasswordCorrect)
                     {
                         // Successful login; redirect to the user's dashboard or desired page
-                        return RedirectToAction("Home");
+                        return RedirectToAction("Dashboard");
                     }
                 }
 

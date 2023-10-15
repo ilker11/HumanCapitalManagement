@@ -1,0 +1,27 @@
+﻿
+
+.text-center {
+    text-align: center;
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+}
+
+.form-control {
+    height: 40px;
+}
+
+.btn {
+    width: 100%;
+}

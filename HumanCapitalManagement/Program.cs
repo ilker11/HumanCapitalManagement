@@ -1,3 +1,4 @@
+using Fluent.Infrastructure.FluentModel;
 using HumanCapitalManagement.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +10,10 @@ builder.Services.AddDbContext<ApplicationDBContext>(
         o => o.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
     );
 builder.Services.AddScoped<PasswordServices>();
+//builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
+//    .AddEntityFrameworkStores<ApplicationDbContext>()
+//    .AddDefaultTokenProviders();
+
 
 var app = builder.Build();
 
@@ -30,6 +35,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Login}/{action=Index}/{id?}");
 
 app.Run();
