@@ -44,8 +44,21 @@ namespace HumanCapitalManagement.Controllers
 
                     if (isPasswordCorrect)
                     {
+                        string role = _dbContext.Logins
+                    .Where(u => u.Username == model.Username)
+                    .Select(u => u.RoleName.RoleName)
+                    .FirstOrDefault();
+
+                        if (role == "Admin")
+                        {
+                            return RedirectToAction("Dashboard/AdminDashboard");
+                        }
+                        else if (role == "User")
+                        {
+                            return RedirectToAction("Dashboard/UserDashboard");
+                        }
                         // Successful login; redirect to the user's dashboard or desired page
-                        return RedirectToAction("Dashboard");
+                        // return RedirectToAction("Dashboard");
                     }
                 }
 
@@ -57,11 +70,11 @@ namespace HumanCapitalManagement.Controllers
             return View(model);
         }
 
-        public IActionResult Dashboard()
-        {
-            // Display the user's dashboard
-            return View();
-        }
+    //    public IActionResult Dashboard()
+    //    {
+    //        // Display the user's dashboard
+    //        return View();
+    //    }
     }
 
 }

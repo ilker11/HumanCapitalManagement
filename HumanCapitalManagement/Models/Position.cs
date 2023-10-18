@@ -7,12 +7,15 @@ namespace HumanCapitalManagement.Models
     {
         public Position()
         {
-            Departments = new HashSet<Department>();
+            EmployeeInfos = new HashSet<EmployeeInfo>();
         }
 
         public int PositionId { get; set; }
         public string? PositionName { get; set; }
+        public int? DepartmentId { get; set; }
 
-        public virtual ICollection<Department> Departments { get; set; }
+        public virtual Department? Department { get; set; }
+        public virtual ICollection<EmployeeInfo> EmployeeInfos { get; set; }
+        
     }
 }

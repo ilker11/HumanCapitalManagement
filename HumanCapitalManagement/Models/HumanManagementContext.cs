@@ -61,17 +61,12 @@ namespace HumanCapitalManagement.Models
 
                 entity.Property(e => e.DepartmentName).HasColumnName("department_name");
 
-                entity.Property(e => e.PositionId).HasColumnName("position_id");
 
                 entity.HasOne(d => d.Assignment)
                     .WithMany(p => p.Departments)
                     .HasForeignKey(d => d.AssignmentId)
                     .HasConstraintName("assignment_id");
 
-                entity.HasOne(d => d.Position)
-                    .WithMany(p => p.Departments)
-                    .HasForeignKey(d => d.PositionId)
-                    .HasConstraintName("position_id");
             });
 
             modelBuilder.Entity<EmployeeInfo>(entity =>
@@ -89,11 +84,9 @@ namespace HumanCapitalManagement.Models
 
                 entity.Property(e => e.DateOfBirth).HasColumnName("date_of_birth");
 
-                entity.Property(e => e.DepartmentId).HasColumnName("department_id");
+                entity.Property(e => e.PositionId).HasColumnName("position_id");
 
                 entity.Property(e => e.Email).HasColumnName("email");
-
-                entity.Property(e => e.EmployementId).HasColumnName("employement_id");
 
                 entity.Property(e => e.EndDate).HasColumnName("end_date");
 
@@ -122,10 +115,10 @@ namespace HumanCapitalManagement.Models
                     .HasForeignKey(d => d.CityId)
                     .HasConstraintName("city_id");
 
-                entity.HasOne(d => d.Department)
+                entity.HasOne(d => d.Position)
                     .WithMany(p => p.EmployeeInfos)
-                    .HasForeignKey(d => d.DepartmentId)
-                    .HasConstraintName("department_id");
+                    .HasForeignKey(d => d.PositionId)
+                    .HasConstraintName("position_id");
 
                 entity.HasOne(d => d.Gender)
                     .WithMany(p => p.EmployeeInfos)
@@ -213,6 +206,7 @@ namespace HumanCapitalManagement.Models
                     .HasColumnName("salary_id");
 
                 entity.Property(e => e.Salary1).HasColumnName("salary");
+                entity.Property(e => e.Salary_Receive).HasColumnName("salary_receive");
             });
 
             OnModelCreatingPartial(modelBuilder);

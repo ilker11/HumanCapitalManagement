@@ -12,6 +12,7 @@ namespace HumanCapitalManagement.Models
 
         public int SalaryId { get; set; }
         public decimal Salary1 { get; set; }
+        public DateOnly Salary_Receive { get; set; }
 
         public virtual ICollection<EmployeeInfo> EmployeeInfos { get; set; }
     }

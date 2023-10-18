@@ -16,9 +16,8 @@ namespace HumanCapitalManagement.Models
         public DateOnly DateOfBirth { get; set; }
         public string Email { get; set; } = null!;
         public string? Phone { get; set; }
-        public int? EmployementId { get; set; }
         public int? GenderId { get; set; }
-        public int? DepartmentId { get; set; }
+        public int? PositionId { get; set; }
         public int? CityId { get; set; }
         public int? SalaryId { get; set; }
         public string? Status { get; set; }
@@ -26,7 +25,7 @@ namespace HumanCapitalManagement.Models
         public DateOnly? EndDate { get; set; }
 
         public virtual City? City { get; set; }
-        public virtual Department? Department { get; set; }
+        public virtual Position? Position { get; set; }
         public virtual Gender? Gender { get; set; }
         public virtual Salary? Salary { get; set; }
         public virtual ICollection<Login> Logins { get; set; }
