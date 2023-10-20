@@ -51,7 +51,7 @@ namespace HumanCapitalManagement.Controllers
 
                         if (role == "Admin")
                         {
-                            return RedirectToAction("Dashboard/AdminDashboard");
+                            return RedirectToAction("~/Views/Dashboard/AdminDashboard.cshtml");
                         }
                         else if (role == "User")
                         {
